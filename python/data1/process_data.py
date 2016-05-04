@@ -1,5 +1,27 @@
 import os
 
+"""
+
+OBJECTIVE.  To go from:
+
+"TIMESTAMP","PAYLOAD"
+"2016-05-04 00:10:22.00","01,F0,ED,01,96,1D,00,34,00,01,FF,DD"
+"2016-05-04 00:10:22.01","01,F0,ED,01,96,1D,00,34,00,01,FF,DD"
+"2016-05-04 00:10:22.02","01,E7,A0,01,E3,65,00,35,00,01,FF,DD"
+
+
+To something like, i.e. (3 pairs, 3 pairs, 2 pairs, 2 pairs, 2 pairs, e.g.:
+01F0ED  01961D  0034  0001  FFDD
+):
+
+"TIMESTAMP","PAYLOAD"
+"2016-05-04 00:10:22.00","123456","123456","1234","1234","1234"
+"2016-05-04 00:10:22.01","123456","123456","1234","1234","1234"
+"2016-05-04 00:10:22.02","123456","123456","1234","1234","1234"
+
+"""
+
+
 dataFilesDir = "./rawData/"
 availableDataFiles = os.listdir(dataFilesDir);
 availableCSVDataFiles = filter(lambda fn: fn.endswith('csv'), availableDataFiles)
